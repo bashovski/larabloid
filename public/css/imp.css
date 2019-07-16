@@ -1,0 +1,7 @@
+/**
+ * Making sure the hover color of the listitems on the main navbar is same as the larabloid main color.
+ */
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #ee2a7b;
+}
