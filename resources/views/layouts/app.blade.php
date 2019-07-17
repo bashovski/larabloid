@@ -11,6 +11,7 @@
     <link rel="shortcut icon" type="image/gif" href="img/logo.png">
 
     <!-- Scripts -->
+    <script src="{{ asset( 'js/front.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->

@@ -69,13 +69,15 @@
                                         </button>
                                     </div>
                                 </div>
-
+                            </div>
+                        </div>
+                        <div>
+                            <div class="pt-2 pl-2">
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link col-md-7 offset-md-4" style="color: #ee2a7b" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                    <a class="btn btn-link col-md-5 offset-md-4 pl-5" style="color: #ee2a7b; display: inline;" href="{{ route('password.request') }}">
+                                        Forgot your password?
                                     </a>
                                 @endif
-
                             </div>
                         </div>
                     </form>

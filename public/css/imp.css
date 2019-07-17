@@ -5,3 +5,13 @@
 .navbar-nav .nav-item .nav-link:hover {
     color: #ee2a7b;
 }
+
+/**
+ * disabled user-select for all elements on the page.
+ */
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

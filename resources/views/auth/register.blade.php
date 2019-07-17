@@ -49,16 +49,16 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }} <span class="__obl">*</span></label>
+                            <label for="username" class="col-md-4 col-form-label text-md-right">Username <span class="__obl">*</span></label>
 
                             <div class="col-md-6">
-                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" required autocomplete="username">
+                                <input id="username" type="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" autocomplete="username">
 
-                                @error('username')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                @if ($errors->has('username'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('username') }}</strong>
                                     </span>
-                                @enderror
+                                @endif
                             </div>
                         </div>
 
@@ -75,21 +75,6 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="avatar" type="file" class="form-control-file" name="avatar">
-
-                                @error('avatars')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }} <span class="__obl">*</span></label>
 
@@ -106,7 +91,7 @@
                             </div>
                         </div>
 
-                        <div id="signature"></div> <script src="/js/front.js">signature_printout();</script>
+                        <signature-element class="col-md-6 offset-md-5 pl-2 pt-4"></signature-element> <!-- vue component -->
                     </form>
                 </div>
             </div>
