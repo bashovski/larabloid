@@ -15,3 +15,40 @@
     -ms-user-select: none;
     user-select: none;
 }
+/**
+ * stylesheet for hexagonal avatar on the profile page
+ */
+#__hex_avatar {
+    stroke-width:2;
+    background: linear-gradient(to right, red, purple);
+}
+
+svg {
+    stroke-dasharray: 1000;
+    /* stroke-dashoffset: 300; */
+    transition: all .8s ease-in-out;
+}
+
+#__user_name_lab {
+    font-size: 28px;
+    font-weight: bolder;
+    background: -webkit-linear-gradient( #f9ed32, #ee2a7b );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#__real_name_lab {
+    white-space: nowrap;
+}
+
+.__g_stat {
+    font-size: 18px;
+    font-weight: bold;
+    background: -webkit-linear-gradient( #f9ed32, #ee2a7b );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.__g_const {
+    
+}

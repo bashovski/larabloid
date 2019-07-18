@@ -20,8 +20,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="css/button.css" rel="stylesheet">
-    <link href="css/imp.css" rel="stylesheet">
+    <link href="{{ asset('css/button.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/imp.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
