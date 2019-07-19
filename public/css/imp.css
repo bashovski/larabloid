@@ -52,3 +52,27 @@ svg {
 .__g_const {
     
 }
+
+.__error_verse {
+
+    font-weight: bold;
+    font-style: italic;
+    font-size: 16px;
+    background: -webkit-linear-gradient( #f9ed32, #ee2a7b );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#__error_code {
+    font-size: 128px;
+    font-weight: bolder;
+    background: -webkit-linear-gradient( #f9ed32, #ee2a7b );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.__highlight {
+    background: -webkit-linear-gradient( #f9ed32, #ee2a7b );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

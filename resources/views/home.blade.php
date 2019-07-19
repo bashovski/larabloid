@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <div class="container">
     <!-- Upper part of page for important visible data such as: name, date registered, number of comments, news submissions, et cetera-->
     <div class="row">
@@ -35,10 +34,21 @@
                     <div><span class="__g_stat pl-5">300</span> <span class="__g_const">comments</span></div>
                     <div><span class="__g_stat pl-5">20</span> <span class="__g_const">reputation</span></div>
                 </div>
-                <!-- bio -->
+                <!-- bio [max length: 120chars]-->
                 <div>
-                    <div><span>Don't be ridic-take this earpiece, do as I say. You'll be home for a blowjob and a bologna sandwich. testasdasdasdasdasasdasd</span></div>
-                    <div><span></span></div>
+                    <div class="d-flex pt-1">
+                        <object data="/svg/bio.svg" type="image/svg+xml" width="16" height="16">
+                            <img src=/svg/bio.svg"/>
+                        </object>
+                        <div class="pl-1"><span>{{ $user->profile->biography }}</span></div>
+                    </div>
+                    <!-- location -->
+                    <div class="d-flex pt-1">
+                        <object data="/svg/location.svg" type="image/svg+xml" width="16" height="16">
+                            <img src=/svg/location.svg"/>
+                        </object>
+                        <div class="pl-1"><span>{{ $user->profile->location }}</span></div>
+                    </div>
                 </div>
             </div>
         </div>
