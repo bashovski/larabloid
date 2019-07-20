@@ -76,3 +76,7 @@ svg {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+#signature {
+    color: #1a1a1a;
+}

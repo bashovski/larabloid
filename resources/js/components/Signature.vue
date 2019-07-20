@@ -1,6 +1,6 @@
 <template>
     <div>
-        <span id="signature">Anur Basic</span>
+        <a href="https://github.com/bashovski" id="signature">Anur Basic</a>
     </div>
 </template>
 

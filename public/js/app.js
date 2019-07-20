@@ -37155,7 +37155,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("span", { attrs: { id: "signature" } }, [_vm._v("Anur Basic")])
+      _c(
+        "a",
+        { attrs: { href: "https://github.com/bashovski", id: "signature" } },
+        [_vm._v("Anur Basic")]
+      )
     ])
   }
 ]

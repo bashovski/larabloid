@@ -2,6 +2,17 @@
 
 @section('content')
 
+<!-- overriding background -->
+
+<body
+        style="background-image: linear-gradient( to top, rgba( 49,237,50, 0.5 ), rgba( 240, 77, 109, 1)),
+      url(http://d35w1c74a0khau.cloudfront.net/wp-content/uploads/2019/04/exterior_2.jpg);
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;background-size: cover;
+      background-size: 100% 200%;">
+
+</body>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -30,7 +41,8 @@
 
                             <div class="col-md-6">
                                 <input id="biography" type="biography" class="form-control{{ $errors->has('biography') ? ' is-invalid' : '' }}"
-                                name=biography" value="{{ old('biography') }}" autocomplete="biography">
+                                name="biography" value="{{ old('biography') }}" autocomplete="biography"
+                                       placeholder="{{ auth()->user()->profile->biography }}">
 
                                 @if ($errors->has('biography'))
                                     <span class="invalid-feedback" role="alert">
@@ -39,7 +51,58 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="location" class="col-md-4 col-form-label text-md-right">Location</label>
 
+                            <div class="col-md-6">
+                                <input id="location" type="location" class="form-control{{ $errors->has('location') ? ' is-invalid' : '' }}"
+                                       name="location" value="{{ old('location') }}" placeholder="{{ auth()->user()->profile->location }}">
+
+                                @if ($errors->has('location'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('location') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">New Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm new password</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="avatar" class="col-md-4 col-form-label text-md-right">Avatar</label>
+
+                            <input type="file" class="col-md-4 form-control-file text-md-right" id="avatar" name="avatar">
+
+                            @if ($errors->has('avatar'))
+                                <strong>{{ $errors->first('avatar') }}</strong>
+                            @endif
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-7 offset-md-4">
+                                <button type="submit" class="__g__b__button">
+                                    Update your user settings
+                                </button>
+                            </div>
+                        </div>
 
 
                     </form>
