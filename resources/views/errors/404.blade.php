@@ -33,7 +33,6 @@
                     You have <span class="__highlight">(somehow)</span> entered a page which doesn't exist.
                     Try <span class="__highlight">getting out of here</span>.</div>
 
-                    @if (Route::has('register'))
                     <div class="pt-2">
                         <form action="{{ url('/') }}">
                             <button type="submit" class="__g__b__button">
@@ -41,7 +40,6 @@
                             </button>
                         </form>
                     </div>
-                    @endif
                 </div>
             </div>
         </div>

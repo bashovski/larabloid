@@ -19,15 +19,17 @@
             <div class="card">
                 <div class="card-header">User settings</div>
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <form method="post" action="/profile/{{ $user->id }}">
                     @csrf
+                    @method('patch')
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" placeholder="{{ auth()->user()->email }}" required autocomplete="email">
+                                name="email" value="{{ old('email') }}" autocomplete="email"
+                                placeholder= "{{ auth()->user()->email }}" >
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -41,8 +43,7 @@
 
                             <div class="col-md-6">
                                 <input id="biography" type="biography" class="form-control{{ $errors->has('biography') ? ' is-invalid' : '' }}"
-                                name="biography" value="{{ old('biography') }}" autocomplete="biography"
-                                       placeholder="{{ auth()->user()->profile->biography }}">
+                                name="biography" value="{{ old('biography') ?? auth()->user()->profile->biography }}" autocomplete="biography" >
 
                                 @if ($errors->has('biography'))
                                     <span class="invalid-feedback" role="alert">
@@ -56,7 +57,7 @@
 
                             <div class="col-md-6">
                                 <input id="location" type="location" class="form-control{{ $errors->has('location') ? ' is-invalid' : '' }}"
-                                       name="location" value="{{ old('location') }}" placeholder="{{ auth()->user()->profile->location }}">
+                                       name="location" value="{{ old('location') ?? auth()->user()->profile->location }}">
 
                                 @if ($errors->has('location'))
                                     <span class="invalid-feedback" role="alert">
@@ -69,7 +70,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">New Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -82,7 +83,7 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm new password</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
                             </div>
                         </div>
 
