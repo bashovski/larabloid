@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class ProfilesController
@@ -56,6 +57,22 @@ class ProfilesController extends Controller
             'password' => ['sometimes', 'nullable', 'string', 'min:8', 'confirmed']
 
         ]);
+
+        // hash
+        $user_data[ 'password' ] = Hash::make( $user_data['password'] );
+
+        /*
+         *  Removing either email or password or both if they are not renewed
+         *  (second validation)
+         */
+        if( $user_data[ 'email' ] == null )
+            unset( $user_data[ 'email' ] );
+
+        if( $user_data[ 'password' ] == null )
+            unset( $user_data[ 'password' ] );
+
+        if( !empty( $user_data ) )
+            auth()->user()->update( $user_data );
 
         auth()->user()->profile->update( $data );
 
