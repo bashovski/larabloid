@@ -10,7 +10,7 @@
             <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <pattern id="img" patternUnits="userSpaceOnUse" width="100" height="100">
-                        <image xlink:href="https://avatars2.githubusercontent.com/u/48890281?s=460&v=4" x="-25" width="150" height="100" />
+                        <image xlink:href="/storage/{{ $user->profile->avatar }}" x="-25" width="150" height="100" />
                     </pattern>
                     <linearGradient id="gradient" x1="100%" y1="50%" x2="50%" y2="100%">
                         <stop offset="0%" stop-color="#ee2a7b" />

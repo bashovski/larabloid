@@ -48,7 +48,7 @@ class ProfilesController extends Controller
 
             'biography' => "required",
             'location' => "required",
-            #'avatar' => ""
+            'avatar' => [ "image", "max:5120" ]
         ]);
 
         $user_data = request()->validate([
@@ -74,7 +74,19 @@ class ProfilesController extends Controller
         if( !empty( $user_data ) )
             auth()->user()->update( $user_data );
 
-        auth()->user()->profile->update( $data );
+        /*
+         *  removing avatar if not chosen by the user
+         */
+
+        $avatarPath = auth()->user()->profile->avatar;
+        if( request( 'avatar' ) ) {
+            $avatarPath = request( 'avatar' )->store( 'profile', 'public' );
+        }
+
+        auth()->user()->profile->update( array_merge(
+            $data,
+            [ 'avatar' => $avatarPath ]
+        ) );
 
         return redirect( "/profile/{$user->id}" );
     }

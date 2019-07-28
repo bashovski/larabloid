@@ -19,7 +19,7 @@
             <div class="card">
                 <div class="card-header">User settings</div>
                 <div class="card-body">
-                    <form method="post" action="/profile/{{ $user->id }}">
+                    <form method="post" action="/profile/{{ $user->id }}" enctype="multipart/form-data">
                     @csrf
                     @method('patch')
 
