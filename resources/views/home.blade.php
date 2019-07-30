@@ -10,7 +10,9 @@
             <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <pattern id="img" patternUnits="userSpaceOnUse" width="100" height="100">
-                        <image xlink:href="/storage/{{ $user->profile->avatar }}" x="-25" width="150" height="100" />
+                        <image
+                            xlink:href="{{ ($user->profile->avatar) ? ('/storage/'.($user->profile->avatar)) : (url('/storage/default.png')) }}"
+                            x="-25" width="150" height="100"></image>
                     </pattern>
                     <linearGradient id="gradient" x1="100%" y1="50%" x2="50%" y2="100%">
                         <stop offset="0%" stop-color="#ee2a7b" />
@@ -38,16 +40,16 @@
                 <div>
                     <div class="d-flex pt-1">
                         <object data="/svg/bio.svg" type="image/svg+xml" width="16" height="16">
-                            <img src=/svg/bio.svg"/>
+                            <img src="/svg/bio.svg"/>
                         </object>
-                        <div class="pl-1"><span>{{ $user->profile->biography }}</span></div>
+                        <div class="pl-1"><span>{{ $user->profile->biography ?? 'This user has not added his biography yet.' }}</span></div>
                     </div>
                     <!-- location -->
                     <div class="d-flex pt-1">
                         <object data="/svg/location.svg" type="image/svg+xml" width="16" height="16">
                             <img src=/svg/location.svg"/>
                         </object>
-                        <div class="pl-1"><span>{{ $user->profile->location }}</span></div>
+                        <div class="pl-1"><span>{{ $user->profile->location ?? 'This user has not added his location yet.' }}</span></div>
                     </div>
                 </div>
             </div>

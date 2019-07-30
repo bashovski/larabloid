@@ -5,12 +5,7 @@
 <!-- overriding background -->
 
 <body
-        style="background-image: linear-gradient( to top, rgba( 49,237,50, 0.5 ), rgba( 240, 77, 109, 1)),
-      url(http://d35w1c74a0khau.cloudfront.net/wp-content/uploads/2019/04/exterior_2.jpg);
-      background-repeat: no-repeat;
-      -webkit-background-size: cover;background-size: cover;
-      background-size: 100% 200%;">
-
+        class = "__backgroundOverride_edit"
 </body>
 
 <div class="container">

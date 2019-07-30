@@ -7,6 +7,7 @@
 <script>
 
     export default {
+        name: "Signature",
         mounted() {
             var date = new Date();
             document.getElementById( 'signature' ).innerHTML = "Anur Bašić, " + date.getFullYear() + ".";

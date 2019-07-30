@@ -1845,6 +1845,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Signature",
   mounted: function mounted() {
     var date = new Date();
     document.getElementById('signature').innerHTML = "Anur Bašić, " + date.getFullYear() + ".";

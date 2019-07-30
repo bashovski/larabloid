@@ -11,7 +11,6 @@
     <link rel="shortcut icon" type="image/gif" href="img/logo.png">
 
     <!-- Scripts -->
-    <script src="{{ asset( 'js/front.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -49,6 +48,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
+
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
@@ -67,12 +67,22 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item __highlight" href="/submit">
+                                        {{ __('Submit news') }}
+                                    </a>
+
+                                    <div class="dropdown-divider"></div>
+
                                     <a class="dropdown-item" href="/profile/{{ Auth::user()->id }}">
                                         {{ __('My profile') }}
                                     </a>
                                     <a class="dropdown-item" href="/profile/edit/{{ Auth::user()->id }}">
                                         {{ __('User settings') }}
                                     </a>
+
+                                    <div class="dropdown-divider"></div>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

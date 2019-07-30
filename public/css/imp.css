@@ -50,7 +50,7 @@ svg {
 }
 
 .__g_const {
-    
+
 }
 
 .__error_verse {
@@ -80,3 +80,22 @@ svg {
 #signature {
     color: #1a1a1a;
 }
+
+.__backgroundOverride_edit {
+    background-image: linear-gradient( to top, rgba( 49,237,50, 0.5 ), rgba( 240, 77, 109, 1)),
+    url(http://d35w1c74a0khau.cloudfront.net/wp-content/uploads/2019/04/exterior_2.jpg);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-image: cover;
+    background-size: 100% 200%;
+}
+
+.__backgroundOverride_submit {
+    background-image: linear-gradient( to top, rgba( 49,237,50, 0.5 ), rgba( 240, 77, 109, 1)),
+    url(http://d35w1c74a0khau.cloudfront.net/wp-content/uploads/2019/04/exterior_2.jpg);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-image: cover;
+    background-size: 100% 200%;
+}
+
