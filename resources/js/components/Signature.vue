@@ -11,6 +11,7 @@
         mounted() {
             var date = new Date();
             document.getElementById( 'signature' ).innerHTML = "Anur Bašić, " + date.getFullYear() + ".";
+            console.log( '[Vue.js] :: [Signature] - mounted.' );
         }
     }
 </script>

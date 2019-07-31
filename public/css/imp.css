@@ -98,4 +98,7 @@ svg {
     background-image: cover;
     background-size: 100% 200%;
 }
+.disable-resize {
+    resize: none;
+}
 
