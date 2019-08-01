@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class SubmissionsController extends Controller
 {
+
+    public function index() {
+        return view( 'submissions.index' );
+    }
     public function create() {
 
         return view( 'submissions.create' );
@@ -21,7 +25,13 @@ class SubmissionsController extends Controller
             'caption' => [ 'required', 'max:128' ],
             'content' => 'required',
         ]);
+
+        $data[ 'verified' ] = false;
+
+        $data[ 'image' ] = request( 'image' )->store( 'submission', 'public' );
+        auth()->user()->submissions()->create(
+            $data
+        );
         dd( request()->all() );
-        Auth::user()->update( $data );
     }
 }

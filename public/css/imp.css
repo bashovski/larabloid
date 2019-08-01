@@ -72,9 +72,13 @@ svg {
 }
 
 .__highlight {
-    background: -webkit-linear-gradient( #f9ed32, #ee2a7b );
+    background: -webkit-linear-gradient( left, #f9ed32, #ee2a7b );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.__bold {
+    font-weight: bolder;
 }
 
 #signature {
@@ -100,5 +104,8 @@ svg {
 }
 .disable-resize {
     resize: none;
+}
+.nowrap {
+    white-space: nowrap;
 }
 

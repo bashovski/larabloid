@@ -68,7 +68,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                                    <a class="dropdown-item __highlight" href="/submit">
+                                    <a class="dropdown-item __highlight" href="/submissions/create">
                                         {{ __('Submit news') }}
                                     </a>
 

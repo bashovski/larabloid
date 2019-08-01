@@ -18,7 +18,7 @@
                             @csrf
 
                             <div class="form-group row">
-                                <label for="title" class="col-md-4 col-form-label text-md-right">Title</label>
+                                <label for="title" class="col-md-4 __highlight __bold col-form-label text-md-right">Title</label>
 
                                 <div class="col-md-6">
                                     <input type="text" name="title" class="form-control text-md-left @error('title') is-invalid @enderror" placeholder="News title">
@@ -31,7 +31,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="category" class="col-md-4 col-form-label text-md-right @error('category') is-invalid @enderror">Category</label>
+                                <label for="category" class="col-md-4 __highlight __bold col-form-label text-md-right @error('category') is-invalid @enderror">Category</label>
 
                                 <div class="col-md-6">
                                     <category-assigner name="category"></category-assigner>
@@ -39,7 +39,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="image" class="col-md-4 col-form-label text-md-right">Image</label>
+                                <label for="image" class="col-md-4 __highlight __bold col-form-label text-md-right">Image</label>
 
                                 <input type="file" class="col-md-4 form-control-file text-md-right @error('image') is-invalid @enderror" id="image" name="image">
 
@@ -50,28 +50,28 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="caption" class="col-md-4 col-form-label text-md-right">Image caption</label>
+                                <label for="caption" class="col-md-4 __highlight __bold col-form-label text-md-right">Image caption</label>
 
                                 <div class="col-md-6">
                                     <input type="text" name="caption" class="form-control text-md-left @error('caption') is-invalid @enderror"
                                            placeholder="Image caption (e.g. description/name of author)">
 
                                     @if ($errors->has('caption'))
-                                        <strong class="invalid-feedback col-md-3" role="alert">
+                                        <strong class="invalid-feedback nowrap col-md-3" role="alert">
                                             {{ $errors->first('caption') }}</strong>
                                     @endif
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="content" class="col-md-4 col-form-label text-md-right">Content</label>
+                                <label for="content" class="col-md-4 __highlight __bold col-form-label text-md-right">Content</label>
 
                                 <div class="col-md-6">
                                     <textarea id="content" name="content" class="form-control disable-resize @error('content') is-invalid @enderror" rows="3"
                                     placeholder="Insert the content of the news you want to submit.">
                                     </textarea>
                                     @if ($errors->has('content'))
-                                        <strong class="invalid-feedback col-md-3" role="alert">
+                                        <strong class="invalid-feedback nowrap col-md-3" role="alert">
                                             {{ $errors->first('content') }}</strong>
                                     @endif
                                 </div>

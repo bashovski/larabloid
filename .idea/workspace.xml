@@ -4,14 +4,10 @@
     <list default="true" id="853f65f4-d189-49c4-bbca-421c093025a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SubmissionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SubmissionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/ProfilePolicy.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Submission.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Submission.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Submission.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/imp.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/imp.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Signature.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Signature.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/submit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/submissions/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/submissions/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/submissions/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -209,7 +205,10 @@
       <workItem from="1564486976677" duration="4223000" />
       <workItem from="1564502465686" duration="4735000" />
       <workItem from="1564567501229" duration="579000" />
-      <workItem from="1564578913468" duration="20886000" />
+      <workItem from="1564578913468" duration="21204000" />
+      <workItem from="1564607488544" duration="6147000" />
+      <workItem from="1564664403025" duration="2487000" />
+      <workItem from="1564674539168" duration="862000" />
     </task>
     <servers />
   </component>
