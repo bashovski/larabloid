@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+use App\Submission;
 
 class SubmissionsController extends Controller
 {
 
     public function index() {
         return view( 'submissions.index' );
+    }
+    public function show( Submission $submission ) {
+        $submission->increment( 'views' );
+        return view( 'submissions.show', compact('submission' ) );
     }
     public function create() {
 

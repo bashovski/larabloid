@@ -109,3 +109,12 @@ svg {
     white-space: nowrap;
 }
 
+#__sub_title {
+
+    font-size: 22px;
+    font-weight: bolder;
+    background: -webkit-linear-gradient( top, #f9ed32, #ee2a7b );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
