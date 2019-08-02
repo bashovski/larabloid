@@ -32,7 +32,7 @@
                 </div>
                 <!-- stats [count] -->
                 <div class="d-flex" style="white-space: nowrap;">
-                    <div><span class="__g_stat">300</span> <span class="__g_const">submissions</span></div>
+                    <div><span class="__g_stat">{{ $subCount }}</span> <span class="__g_const">submissions</span></div>
                     <div><span class="__g_stat pl-5">300</span> <span class="__g_const">comments</span></div>
                     <div><span class="__g_stat pl-5">20</span> <span class="__g_const">reputation</span></div>
                 </div>
@@ -42,18 +42,33 @@
                         <object data="/svg/bio.svg" type="image/svg+xml" width="16" height="16">
                             <img src="/svg/bio.svg"/>
                         </object>
-                        <div class="pl-1"><span>{{ $user->profile->biography ?? 'This user has not added his biography yet.' }}</span></div>
+                        <div class="pl-1 nw"><span>{{ $user->profile->biography ?? 'This user has not added his biography yet.' }}</span></div>
                     </div>
                     <!-- location -->
                     <div class="d-flex pt-1">
                         <object data="/svg/location.svg" type="image/svg+xml" width="16" height="16">
                             <img src=/svg/location.svg"/>
                         </object>
-                        <div class="pl-1"><span>{{ $user->profile->location ?? 'This user has not added his location yet.' }}</span></div>
+                        <div class="pl-1 nw"><span>{{ $user->profile->location ?? 'This user has not added his location yet.' }}</span></div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- User submissions -->
+        @foreach( $user->submissions as $submission )
+        <div class="container p-5 border rounded news_div">
+            <div class="d-flex align-items-center">
+                <img class="float:left" src="/storage/{{ $submission->image }}" width="150" height="75">
+                <div class="pl-4">
+                    <span class="__highlight_alt" style="font-weight: bold; font-size: 26px;">{{ $submission->caption }}</span><br>
+                    <span style="font-weight: bold; font-size: 20px;">{{ $submission->title }}</span>
+                </div>
+            </div>
+        </div>
+        @if( $loop->remaining > 0 )
+            <div class="mt-2">&nbsp;</div>
+        @endif
+        @endforeach
     </div>
 </div>
 @endsection

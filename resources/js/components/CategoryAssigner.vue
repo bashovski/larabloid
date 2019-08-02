@@ -20,7 +20,7 @@
                     {category: 'Health'},
                     {category: 'Tech'},
                     {category: 'Sports'},
-                    {category: 'Lifestyle'}
+                    {category: 'Lifestyle' }
                 ],
                 categorySelected: 'Politics'
             }

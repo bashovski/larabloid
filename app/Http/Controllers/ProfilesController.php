@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Cache;
 
 /**
  * Class ProfilesController
@@ -17,7 +18,13 @@ class ProfilesController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index( User $user ) {
-        return view( 'home', compact( 'user') );
+        $subCount = Cache::remember(
+            'count.submissions.' . $user->id,
+            now()->addSeconds(30),
+            function () use ($user) {
+                return $user->submissions->count();
+            });
+        return view( 'home', compact( 'user', 'subCount') );
     }
 
     /**

@@ -34,9 +34,10 @@ class SubmissionsController extends Controller
         $data[ 'verified' ] = false;
 
         $data[ 'image' ] = request( 'image' )->store( 'submission', 'public' );
-        auth()->user()->submissions()->create(
+        $queryObj = auth()->user()->submissions()->create(
             $data
         );
-        dd( request()->all() );
+
+        return redirect( '/submissions/'.$queryObj->id );
     }
 }

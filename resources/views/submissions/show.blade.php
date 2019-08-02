@@ -13,10 +13,18 @@
             </div>
             <!-- Submission image and image info -->
             <div>
-                <img src="/storage/{{ $submission->image }}" alt="{{ $submission->title }}">
+                <img src="/storage/{{ $submission->image }}" alt="{{ $submission->caption }}">
             </div>
+            <!-- Verified notice -->
+            @if( !$submission->verified )
+            <div class="pt-1">
+                <span style="color: #ff6666; text-decoration: underline;">
+                    This submission is not verified by an admin. It may contain false news.
+                </span>
+            </div>
+            @endif
             <!-- Submission info such as views, comment-number, likes and verified status-->
-            <div class="pt-3 d-flex">
+            <div class="pt-2 d-flex">
                 <!-- Num. of views of the submission -->
                 <div class="d-flex align-items-center">
                     <object data="/svg/view.svg" type="image/svg+xml" width="20" height="20" class="pb-1 pr-1">
@@ -37,8 +45,11 @@
                     <span>0</span>
                 </div>
             </div>
-            <div>
-                <span>Posted {{ $submission->getSubmitDateSubtracted() }}</span>
+            <!-- Posted (date) -->
+            <div><span>Posted {{ $submission->getSubmitDateSubtracted() }}</span></div>
+
+            <div class="pt-1">
+                <span>{{ $submission->content }}</span>
             </div>
         </div>
         <!-- Right container -->

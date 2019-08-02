@@ -77,6 +77,18 @@ svg {
     -webkit-text-fill-color: transparent;
 }
 
+.__highlight_v {
+    background: -webkit-linear-gradient( bottom, #f9ed32, #ee2a7b );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.__highlight_alt {
+    background: -webkit-linear-gradient( bottom, #f9ffa8, #FFA6A6 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .__bold {
     font-weight: bolder;
 }
@@ -118,3 +130,21 @@ svg {
     -webkit-text-fill-color: transparent;
 }
 
+.nw {
+    white-space: nowrap;
+}
+
+.news_div {
+    background: -moz-linear-gradient(45deg, #FF4A65 0%, #755B80 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #FF4A65), color-stop(100%, #755B80)); /* safari4+,chrome */
+    background: -webkit-linear-gradient(45deg, #FF4A65 0%, #755B80 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(45deg, #FF4A65 0%, #755B80 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(45deg, #FF4A65 0%, #755B80 100%); /* ie10+ */
+    background: linear-gradient(45deg, #FF4A65 0%, #755B80 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#755B80', endColorstr='#FF4A65',GradientType=1 ); /* ie6-9 */
+}
+
+.right-al {
+    text-align: right !important;
+    float: right;
+}
