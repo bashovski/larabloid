@@ -31,4 +31,9 @@ class Submission extends Model
         $since = ( intval( '' . Carbon::now()->timestamp ) - intval( '' . $this->created_at->timestamp ) );
         return $this->bindTimeToSubtract( $since );
     }
+
+    public function comments() {
+        return $this->morphMany( 'App\Comment', 'commentable' );
+    }
+
 }

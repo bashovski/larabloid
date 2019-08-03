@@ -148,3 +148,31 @@ svg {
     text-align: right !important;
     float: right;
 }
+
+a.nostyle:link {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+a.nostyle:visited {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+#sub_div:hover .news_div {
+    background: -moz-linear-gradient(45deg, #09805C 0%, #E4FFA6 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #09805C), color-stop(100%, #E4FFA6)); /* safari4+,chrome */
+    background: -webkit-linear-gradient(45deg, #09805C 0%, #E4FFA6 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(45deg, #09805C 0%, #E4FFA6 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(45deg, #09805C 0%, #E4FFA6 100%); /* ie10+ */
+    background: linear-gradient(45deg, #09805C 0%, #E4FFA6 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#E4FFA6', endColorstr='#09805C',GradientType=1 );
+}
+
+#__write_comment path {
+
+    background-color: #0099ff;
+
+}

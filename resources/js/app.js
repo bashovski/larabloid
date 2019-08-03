@@ -10,6 +10,7 @@ window.Vue = require('vue');
 
 import signature from './components/Signature.vue';
 import categoryAssigner from './components/CategoryAssigner.vue';
+import lengthChecker from './components/CommentLengthChecker.vue';
 
 
 /**
@@ -35,6 +36,7 @@ const app = new Vue({
     el: '#app',
     components: {
         'signature-element': signature,
-        'category-assigner': categoryAssigner
+        'category-assigner': categoryAssigner,
+        'length-checker': lengthChecker
     }
 });

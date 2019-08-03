@@ -4,7 +4,7 @@
 
 <div class="container">
     <!-- Upper part of page for important visible data such as: name, date registered, number of comments, news submissions, et cetera-->
-    <div class="row">
+    <a class="row">
         <!-- Avatar -->
         <div class="col-3 p-5">
             <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -55,18 +55,22 @@
             </div>
         </div>
         <!-- User submissions -->
+        <h2 class="pl-3 __highlight_v" style="font-weight: bold;">Submissions by {{ $user->name }}</h2>
         @foreach( $user->submissions as $submission )
-        <div class="container p-5 border rounded news_div">
-            <div class="d-flex align-items-center">
-                <img class="float:left" src="/storage/{{ $submission->image }}" width="150" height="75">
-                <div class="pl-4">
-                    <span class="__highlight_alt" style="font-weight: bold; font-size: 26px;">{{ $submission->caption }}</span><br>
-                    <span style="font-weight: bold; font-size: 20px;">{{ $submission->title }}</span>
+        <a href="{{ route( 'submission.show', [ 'id' => $submission ] ) }}" class="nostyle" id="sub_div">
+            <div class="text-right" style="font-weight: bold;"><span>{{ $submission->getSubmitDateSubtracted() }}</span></div>
+            <div class="container p-5 border rounded news_div" style="cursor: pointer;">
+                <div class="d-flex align-items-center">
+                    <img class="float:left" src="/storage/{{ $submission->image }}" width="150" height="75">
+                    <div class="pl-4">
+                        <span class="__highlight_alt" style="font-weight: bold; font-size: 26px;">{{ $submission->caption }}</span><br>
+                        <span style="font-weight: bold; font-size: 20px;">{{ $submission->title }}</span>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
         @if( $loop->remaining > 0 )
-            <div class="mt-2">&nbsp;</div>
+            <div class="mb-1">&nbsp;</div>
         @endif
         @endforeach
     </div>
