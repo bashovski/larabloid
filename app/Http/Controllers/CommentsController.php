@@ -8,21 +8,22 @@ use App\Submission;
 
 class CommentsController extends Controller
 {
+    public function index( Submission $submission ) {
+        $submissions = Submission::with('comments')->get()->find( $submission );
+        return dd( $submissions['comments'] );
+    }
     public function create() {
 
     }
-    public function store( $submission ) {
+    public function store( Submission $submission ) {
 
         $data = request()->validate([
-           'text' => [ 'required', 'string', 'max:255' ]
+           'text' => [ 'required', 'string', 'max:255' ],
         ]);
 
-        auth()->user()->comments()->create([
-            $data,
-            'commentable_id' => (string)( $submission ),
-            'commentable_type' => '\App\Comment'
-        ]);
+        $data[ 'user_id' ] = auth()->user()->id;
+        $id = $submission->comments()->create( $data );
+        return redirect( '/submissions/'.$submission->id );
 
-        dd( $submission, $data );
     }
 }

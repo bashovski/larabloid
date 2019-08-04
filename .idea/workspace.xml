@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="853f65f4-d189-49c4-bbca-421c093025a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Comment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CommentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CommentsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Submission.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Submission.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_03_140734_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_03_140734_create_comments_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/imp.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/imp.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/submissions/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/submissions/show.blade.php" afterDir="false" />
@@ -223,7 +222,8 @@
       <workItem from="1564674539168" duration="12271000" />
       <workItem from="1564748694890" duration="14258000" />
       <workItem from="1564778447707" duration="9602000" />
-      <workItem from="1564827576673" duration="26419000" />
+      <workItem from="1564827576673" duration="31480000" />
+      <workItem from="1564918508491" duration="11369000" />
     </task>
     <servers />
   </component>

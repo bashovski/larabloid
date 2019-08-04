@@ -55,7 +55,7 @@
             </div>
         </div>
         <!-- User submissions -->
-        <h2 class="pl-3 __highlight_v" style="font-weight: bold;">Submissions by {{ $user->name }}</h2>
+        <div class="pl-3 __highlight_v h1" style="font-weight: bold;">Submissions by {{ $user->name }}</div>
         @foreach( $user->submissions as $submission )
         <a href="{{ route( 'submission.show', [ 'id' => $submission ] ) }}" class="nostyle" id="sub_div">
             <div class="text-right" style="font-weight: bold;"><span>{{ $submission->getSubmitDateSubtracted() }}</span></div>

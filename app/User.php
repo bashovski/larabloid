@@ -55,6 +55,6 @@ class User extends Authenticatable
         return $this->hasMany( Submission::class )->orderBy('created_at', 'DESC');
     }
     public function comments() {
-        return $this->morphMany( 'App\Comment', 'commentable' );
+        return $this->morphMany( Comment::class, 'commentable' );
     }
 }

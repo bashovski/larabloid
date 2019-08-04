@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <!-- News container -->
-        <div class="col-md-8 order-md-2 mb-4 border border-top-0 rounded">
+        <div class="col-md-8 order-md-2 mb-4 border border-top-0 rounded _div_ib">
             <!-- Upper part of the container (title, author, etc.)-->
             <div class="d-flex align-items-center">
                 <h1 class="" id="__sub_title">{{ strtoupper( $submission->title ) }}</h1>
@@ -36,7 +36,7 @@
                     <object data="/svg/comment.svg" type="image/svg+xml" width="20" height="20" class="pb-1 pr-1">
                         <img src="/svg/comment.svg"/>
                     </object>
-                    <span>0</span>
+                    <span>{{ \App\Comment::where('commentable_id', '=', $submission->id )->count() }}</span>
                 </div>
                 <div class="pl-3 d-flex align-items-center">
                     <object data="/svg/like.svg" type="image/svg+xml" width="20" height="20" class="pb-1 pr-1">
@@ -63,15 +63,22 @@
 
             </div>
             <!-- Comment box -->
-            <div class="container p-4 border rounded news_div" style="cursor: pointer;">
-                <div class="align-items-center d-flex">
-                    <img src="https://avatars2.githubusercontent.com/u/48890281?s=460&v=4" alt="" class="rounded-circle" width="20%" height="20%">
-                    <div class="pl-4 pb-sm-2">
-                        <span style="font-weight: bold">Ime Prezime</span>
-                        <span>Test comment for testing and development purposes which will be posted by an user of larabloid.</span>
+            @foreach( $submission->comments as $comment )
+            <a href="{{ route( 'profile.show', [ 'id' => \App\User::find( $comment->user_id ) ] ) }}" class="nostyle" id="sub_div">
+                <div class="container p-4 border rounded news_div" style="cursor: pointer;">
+                    <div class="align-items-center d-flex">
+                        <img src="/storage/{{ \App\User::find( $comment->user_id )->profile->avatar }}" alt="" class="rounded-circle" width="20%" height="20%">
+                        <div class="pl-4 pb-sm-2">
+                            <span style="font-weight: bold">{{ \App\User::find( $comment->user_id )->name }}</span>
+                            <span>{{ $comment->text }}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
+            @if($loop->remaining > 0 )
+                <div class="pb-2"></div>
+            @endif
+            @endforeach
         </div>
     </div>
 </div>

@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 class Submission extends Model
 {
-    protected $guarded = [];
+    protected $fillable = [ 'user_id', 'title', 'category', 'image', 'caption', 'content', 'verified', 'views', 'likes' ];
 
     public function user() {
         return $this->belongsTo( User::class );
@@ -33,7 +33,7 @@ class Submission extends Model
     }
 
     public function comments() {
-        return $this->morphMany( 'App\Comment', 'commentable' );
+        return $this->morphMany( Comment::class, 'commentable' );
     }
 
 }

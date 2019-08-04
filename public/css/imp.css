@@ -174,5 +174,7 @@ a.nostyle:visited {
 #__write_comment path {
 
     background-color: #0099ff;
-
+}
+._div_ib {
+    display: inline-block;
 }
