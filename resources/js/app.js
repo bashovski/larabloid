@@ -4,6 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -11,6 +12,7 @@ window.Vue = require('vue');
 import signature from './components/Signature.vue';
 import categoryAssigner from './components/CategoryAssigner.vue';
 import lengthChecker from './components/CommentLengthChecker.vue';
+import LikeButton from './components/LikeButton.vue';
 
 
 /**
@@ -37,6 +39,7 @@ const app = new Vue({
     components: {
         'signature-element': signature,
         'category-assigner': categoryAssigner,
-        'length-checker': lengthChecker
+        'length-checker': lengthChecker,
+        'like-btn': LikeButton
     }
 });

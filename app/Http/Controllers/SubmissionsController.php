@@ -10,12 +10,14 @@ use App\Submission;
 class SubmissionsController extends Controller
 {
 
-    public function index() {
-        return view( 'submissions.index' );
+    public function index( Submission $submission ) {
+
+        return view( 'submissions.index', compact('submission' ) );
     }
     public function show( Submission $submission ) {
         $submission->increment( 'views' );
-        return view( 'submissions.show', compact('submission' ) );
+        $likes = ( auth()->user() ) ? ( auth()->user()->likes->contains( $submission ) ) : ( false );
+        return view( 'submissions.show', compact('submission', 'likes' ) );
     }
     public function create() {
 

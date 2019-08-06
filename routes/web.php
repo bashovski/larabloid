@@ -29,3 +29,5 @@ Route::post( '/submissions/{submission}', 'CommentsController@create' );
 Route::post( '/comments/{submission}', 'CommentsController@store' );
 
 Route::get('/comments/{submission}', 'CommentsController@index');
+
+Route::post('/like/{submission}', 'LikesController@store' );

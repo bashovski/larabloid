@@ -24,7 +24,7 @@
             </div>
             @endif
             <!-- Submission info such as views, comment-number, likes and verified status-->
-            <div class="pt-2 d-flex">
+            <div class="pt-2 d-flex align-items-center">
                 <!-- Num. of views of the submission -->
                 <div class="d-flex align-items-center">
                     <object data="/svg/view.svg" type="image/svg+xml" width="20" height="20" class="pb-1 pr-1">
@@ -38,13 +38,9 @@
                     </object>
                     <span>{{ \App\Comment::where('commentable_id', '=', $submission->id )->count() }}</span>
                 </div>
-                <div class="pl-3 d-flex align-items-center">
-                    <object data="/svg/like.svg" type="image/svg+xml" width="20" height="20" class="pb-1 pr-1">
-                        <img src="/svg/like.svg"/>
-                    </object>
-                    <span>0</span>
-                </div>
+                <like-btn submission-id="{{ $submission->id }}" likes="{{ $likes }}" like-num="{{ $submission->likedBy->count() }}"></like-btn>
             </div>
+
             <!-- Posted (date) -->
             <div><span>Posted {{ $submission->getSubmitDateSubtracted() }}</span></div>
 

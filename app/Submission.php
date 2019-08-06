@@ -36,4 +36,8 @@ class Submission extends Model
         return $this->morphMany( Comment::class, 'commentable' );
     }
 
+    public function likedBy() {
+        return $this->belongsToMany( User::class );
+    }
+
 }
