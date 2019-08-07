@@ -178,3 +178,13 @@ a.nostyle:visited {
 ._div_ib {
     display: inline-block;
 }
+
+._article_title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #ee2a7b;
+}
+
+._article_box {
+
+}

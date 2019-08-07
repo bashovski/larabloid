@@ -24,7 +24,7 @@ class ProfilesController extends Controller
             function () use ($user) {
                 return $user->submissions->count();
             });
-        return view( 'home', compact( 'user', 'subCount') );
+        return view( 'profile', compact( 'user', 'subCount') );
     }
 
     /**

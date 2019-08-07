@@ -1,5 +1,5 @@
 <template>
-    <div class="pl-3 d-flex align-items-center" @click="likeSubmission()" style="cursor: pointer;">
+    <div class="pl-3 pb-1 d-flex align-items-center" @click="likeSubmission()" style="cursor: pointer;">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13pt" height="13pt" viewBox="0 0 20 20" version="1.1">
             <g id="surface1">
                 <path style="stroke:none;fill-rule:nonzero;;fill-opacity:1; fill: #ff3366;" v-bind:style="{ fill: colUpdate() }"
@@ -7,7 +7,7 @@
                 </path>
             </g>
         </svg>
-        <span class="pl-1" v-text="likeNum"></span>
+        <span class="pl-1 pt-1" v-text="num"></span>
     </div>
 </template>
 
@@ -19,8 +19,7 @@
             likeSubmission: function() {
                 axios.post( '/like/' + this.submissionId )
                     .then( response => {
-                        this.likes = !this.likes;
-                        console.log( response.data );
+                        this.isLiked = !this.isLiked;
                         this.countUpdate();
                         this.colUpdate();
                     }).catch( errors => {
@@ -31,11 +30,11 @@
 
             },
             colUpdate: function() {
-                return ( this.likes ) ? ( '#ff3366' ) : ( '#000000' );
+                return ( this.isLiked ) ? ( '#ff3366' ) : ( '#000000' );
             },
             countUpdate: function() {
-                if( this.likeNum ) return this.likeNum--;
-                else this.likeNum++;
+                if( !this.isLiked ) return this.num--;
+                else this.num++;
             }
         },
         props: [
@@ -45,8 +44,12 @@
         ],
         data() {
             return {
-                isLiked: this.likes
+                isLiked: this.likes,
+                num: this.likeNum
             }
+        },
+        mounted() {
+            console.log( this.likeNum );
         }
     }
 </script>

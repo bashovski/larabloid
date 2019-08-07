@@ -10,9 +10,10 @@ use App\Submission;
 class SubmissionsController extends Controller
 {
 
-    public function index( Submission $submission ) {
+    public function index() {
 
-        return view( 'submissions.index', compact('submission' ) );
+        $submissions = Submission::orderBy('created_at')->get();
+        return view( 'home', compact( 'submissions' ) );
     }
     public function show( Submission $submission ) {
         $submission->increment( 'views' );

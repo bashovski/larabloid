@@ -8,6 +8,10 @@ use App\Submission;
 
 class CommentsController extends Controller
 {
+    public function __construct() {
+        $this->middleware( 'auth' );
+    }
+
     public function index( Submission $submission ) {
         $submissions = Submission::with('comments')->get()->find( $submission );
         return dd( $submissions['comments'] );

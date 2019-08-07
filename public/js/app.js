@@ -1937,8 +1937,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post('/like/' + this.submissionId).then(function (response) {
-        _this.likes = !_this.likes;
-        console.log(response.data);
+        _this.isLiked = !_this.isLiked;
 
         _this.countUpdate();
 
@@ -1950,17 +1949,21 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     colUpdate: function colUpdate() {
-      return this.likes ? '#ff3366' : '#000000';
+      return this.isLiked ? '#ff3366' : '#000000';
     },
     countUpdate: function countUpdate() {
-      if (this.likeNum) return this.likeNum--;else this.likeNum++;
+      if (!this.isLiked) return this.num--;else this.num++;
     }
   },
   props: ['submissionId', 'likes', 'likeNum'],
   data: function data() {
     return {
-      isLiked: this.likes
+      isLiked: this.likes,
+      num: this.likeNum
     };
+  },
+  mounted: function mounted() {
+    console.log(this.likeNum);
   }
 });
 
@@ -37382,7 +37385,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "pl-3 d-flex align-items-center",
+      staticClass: "pl-3 pb-1 d-flex align-items-center",
       staticStyle: { cursor: "pointer" },
       on: {
         click: function($event) {
@@ -37423,8 +37426,8 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("span", {
-        staticClass: "pl-1",
-        domProps: { textContent: _vm._s(_vm.likeNum) }
+        staticClass: "pl-1 pt-1",
+        domProps: { textContent: _vm._s(_vm.num) }
       })
     ]
   )

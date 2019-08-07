@@ -24,6 +24,7 @@ Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.upda
 Route::get('/submissions/create', 'SubmissionsController@create');
 Route::post('/submissions', 'SubmissionsController@store');
 Route::get('/submissions/{submission}', 'SubmissionsController@show')->name('submission.show');
+Route::get('/', 'SubmissionsController@index' );
 
 Route::post( '/submissions/{submission}', 'CommentsController@create' );
 Route::post( '/comments/{submission}', 'CommentsController@store' );
