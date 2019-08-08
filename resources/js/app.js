@@ -13,6 +13,7 @@ import signature from './components/Signature.vue';
 import categoryAssigner from './components/CategoryAssigner.vue';
 import lengthChecker from './components/CommentLengthChecker.vue';
 import LikeButton from './components/LikeButton.vue';
+import WeatherPanel from "./components/WeatherPanel";
 
 
 /**
@@ -40,6 +41,7 @@ const app = new Vue({
         'signature-element': signature,
         'category-assigner': categoryAssigner,
         'length-checker': lengthChecker,
-        'like-btn': LikeButton
+        'like-btn': LikeButton,
+        'weather-panel': WeatherPanel
     }
 });

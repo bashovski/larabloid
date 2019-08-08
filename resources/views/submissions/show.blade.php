@@ -33,7 +33,7 @@
                     <span>{{ $submission->views }}</span>
                 </div>
                 <div class="pl-3 d-flex align-items-center">
-                    <object data="/svg/comment.svg" type="image/svg+xml" width="20" height="20" class="pb-1 pr-1">
+                    <object data="/svg/comment.svg" type="image/svg+xml" width="20px" height="20px" class="pb-1 pr-1">
                         <img src="/svg/comment.svg"/>
                     </object>
                     <span>{{ \App\Comment::where('commentable_id', '=', $submission->id )->count() }}</span>

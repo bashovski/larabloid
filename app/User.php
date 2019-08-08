@@ -48,15 +48,30 @@ class User extends Authenticatable
         );
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function profile() {
         return $this->hasOne( Profile::class );
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function submissions() {
         return $this->hasMany( Submission::class )->orderBy('created_at', 'DESC');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function comments() {
         return $this->morphMany( Comment::class, 'commentable' );
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function likes() {
         return $this->belongsToMany(Submission::class );
     }

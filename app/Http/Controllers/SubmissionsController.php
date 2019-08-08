@@ -6,14 +6,16 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use App\Submission;
+use App\User;
 
 class SubmissionsController extends Controller
 {
 
     public function index() {
 
-        $submissions = Submission::orderBy('created_at')->get();
-        return view( 'home', compact( 'submissions' ) );
+        $submissions = Submission::orderBy('created_at')->paginate( 10 );
+        $users = User::withCount('submissions')->orderBy('submissions_count', 'desc')->paginate(5);
+        return view( 'home', compact( 'submissions', 'users' ) );
     }
     public function show( Submission $submission ) {
         $submission->increment( 'views' );

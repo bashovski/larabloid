@@ -1,0 +1,5 @@
+// Extending Bootstrap's shadow-lg class in order to toggle one while hovered
+
+._a_shadow:hover {
+    @extend .shadow-lg;
+}
