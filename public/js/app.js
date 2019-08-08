@@ -2047,35 +2047,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /**
- *  NOTICE: In order to make this Vue component fully work
- *  it is needed to spend decent amount of money for API access
- *  which will lead to full functionality of this feature.
+ * UPDATE SINCE THE LAST COMMIT:
  *
- *  At the time I found out I couldn't successfully retrieve
- *  successful request data using axios, but only Postman/Insomnia
- *  as an API development environment it was too late to just remove
- *  the functionality.
- *
- *  Instead, I've decided to print out randomized temperature values
- *  expressed in Celsius and to display a random image of weather
- *  which result of display might be changed by the temperature value.
- *
- *  As soon as I find a right source and a right API which
- *  is compatiable with my CORS settings which I have modified
- *  for at least five hours, I will readapt and modify the feature
- *  and fully implement the planned (and unluckily unfinished) features.
- *
- *  INFO: locationID is already prepared to be used with OpenWeatherMap.
+ * External API from OWM has been implemented and
+ * is fully working at the moment with the limit of
+ * 60 req. per minute which is sufficient for this type
+ * of app in this type of development environment.
  */
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "WeatherPanel",
+  mounted: function mounted() {
+    for (var i = 0; i < 4; i++) {
+      this.loadWeatherData(i);
+      this.$forceUpdate();
+    }
+  },
   data: function data() {
     return {
-      locations: [{
+      locations: [// locationID element is unused here, we are using locationIDS as reference in method below...
+      {
         name: 'New York, NY',
-        locationID: 5664535
+        locationID: 5128581
       }, {
         name: 'Sarajevo, BiH',
         locationID: 3191281
@@ -2085,22 +2080,30 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         name: 'San Francisco, CA',
         locationID: 5391959
-      }]
+      }],
+      locationIDs: [5128581, 3191281, 2759794, 5391959],
+      proxy: 'https://cors-anywhere.herokuapp.com/',
+      temperature: [0, 0, 0, 0],
+      icon: ['http://openweathermap.org/img/wn/01d@2x.png', 'http://openweathermap.org/img/wn/01d@2x.png', 'http://openweathermap.org/img/wn/01d@2x.png', 'http://openweathermap.org/img/wn/01d@2x.png']
     };
   },
   methods: {
-    randomTemp: function randomTemp() {
-      return Math.floor(Math.random() * Math.floor(19) + 12);
-    }
-    /*loadWeatherData: function() {
-        axios.get( '' )
-            .then( function( response ) {
-                console.log( response.data );
-        }).catch( errors => {
-            console.log( errors+' ne radi');
-        });
-    }*/
+    loadWeatherData: function loadWeatherData(id) {
+      var _this = this;
 
+      axios.get(this.proxy + 'http://api.openweathermap.org/data/2.5/weather?units=metric&id=' + this.locationIDs[id] + '&appid=65c63737a69855a4698b42e71f3d1b57').then(function (response) {
+        console.log(JSON.parse(JSON.stringify(response.data['weather'][0].icon)));
+        _this.temperature[id] = parseInt(JSON.parse(JSON.stringify(response.data['main'])).temp);
+        _this.icon[id] = 'http://openweathermap.org/img/wn/' + String(JSON.parse(JSON.stringify(response.data['weather'][0].icon))) + '@2x.png';
+        return _this.update(id);
+      })["catch"](function (errors) {
+        console.log(errors);
+      });
+    },
+    update: function update(id) {
+      this.$forceUpdate();
+      return this.icon[id];
+    }
   }
 });
 
@@ -37606,15 +37609,10 @@ var render = function() {
     _c("div", { staticClass: "row m-1" }, [
       _c("div", { staticClass: "border col-md-6 justify-content-center" }, [
         _c("div", { staticClass: "nowrap justify-content-center" }, [
-          _c("img", {
-            attrs: {
-              src: "http://openweathermap.org/img/wn/01d@2x.png",
-              alt: ""
-            }
-          }),
+          _c("img", { attrs: { src: _vm.icon[0], alt: "" } }),
           _vm._v(" "),
           _c("span", { staticStyle: { "font-weight": "bold" } }, [
-            _vm._v(_vm._s(_vm.randomTemp()) + "°")
+            _vm._v(_vm._s(_vm.temperature[0]) + "°")
           ])
         ]),
         _vm._v(" "),
@@ -37632,15 +37630,10 @@ var render = function() {
         { staticClass: "border col-md-6 justify-content-center pb-3" },
         [
           _c("div", { staticClass: "nowrap justify-content-center" }, [
-            _c("img", {
-              attrs: {
-                src: "http://openweathermap.org/img/wn/01d@2x.png",
-                alt: ""
-              }
-            }),
+            _c("img", { attrs: { src: _vm.icon[1], alt: "" } }),
             _vm._v(" "),
             _c("span", { staticStyle: { "font-weight": "bold" } }, [
-              _vm._v(_vm._s(_vm.randomTemp()) + "°")
+              _vm._v(_vm._s(_vm.temperature[1]) + "°")
             ])
           ]),
           _vm._v(" "),
@@ -37659,15 +37652,10 @@ var render = function() {
         { staticClass: "border col-md-6 justify-content-center pb-3" },
         [
           _c("div", { staticClass: "nowrap justify-content-center" }, [
-            _c("img", {
-              attrs: {
-                src: "http://openweathermap.org/img/wn/01d@2x.png",
-                alt: ""
-              }
-            }),
+            _c("img", { attrs: { src: _vm.icon[2], alt: "" } }),
             _vm._v(" "),
             _c("span", { staticStyle: { "font-weight": "bold" } }, [
-              _vm._v(_vm._s(_vm.randomTemp()) + "°")
+              _vm._v(_vm._s(_vm.temperature[2]) + "°")
             ])
           ]),
           _vm._v(" "),
@@ -37686,15 +37674,10 @@ var render = function() {
         { staticClass: "border col-md-6 justify-content-center pb-3" },
         [
           _c("div", { staticClass: "nowrap justify-content-center" }, [
-            _c("img", {
-              attrs: {
-                src: "http://openweathermap.org/img/wn/01d@2x.png",
-                alt: ""
-              }
-            }),
+            _c("img", { attrs: { src: _vm.icon[3], alt: "" } }),
             _vm._v(" "),
             _c("span", { staticStyle: { "font-weight": "bold" } }, [
-              _vm._v(_vm._s(_vm.randomTemp()) + "°")
+              _vm._v(_vm._s(_vm.temperature[3]) + "°")
             ])
           ]),
           _vm._v(" "),
