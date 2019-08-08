@@ -1,7 +1,7 @@
 <template>
     <div class="d-flex justify-content-center">
         <div class="row m-1">
-            <div class="border col-md-6 justify-content-center">
+            <div class="border col-md-6 justify-content-center shadow-lg">
                 <div class="nowrap justify-content-center">
                     <img v-bind:src="icon[ 0 ]" alt="">
                     <span style="font-weight: bold;">{{ temperature[ 0 ]}}°</span>
@@ -10,7 +10,7 @@
                     {{ locations[ 0 ].name }}
                 </div>
             </div>
-            <div class="border col-md-6 justify-content-center pb-3">
+            <div class="border col-md-6 justify-content-center pb-3 shadow-lg">
                 <div class="nowrap justify-content-center">
                     <img v-bind:src="icon[ 1 ]" alt="">
                     <span style="font-weight: bold;">{{ temperature[ 1 ] }}°</span>
@@ -19,7 +19,7 @@
                     {{ locations[ 1 ].name }}
                 </div>
             </div>
-            <div class="border col-md-6 justify-content-center pb-3">
+            <div class="border col-md-6 justify-content-center pb-3 shadow-lg">
                 <div class="nowrap justify-content-center">
                     <img v-bind:src="icon[ 2 ]" alt="">
                     <span style="font-weight: bold;">{{ temperature[ 2 ] }}°</span>
@@ -28,7 +28,7 @@
                     {{ locations[ 2 ].name }}
                 </div>
             </div>
-            <div class="border col-md-6 justify-content-center pb-3">
+            <div class="border col-md-6 justify-content-center pb-3 shadow-lg">
                 <div class="nowrap justify-content-center">
                     <img v-bind:src="icon[ 3 ]" alt="">
                     <span style="font-weight: bold;">{{ temperature[ 3 ] }}°</span>
@@ -92,7 +92,7 @@
         },
         methods: {
             loadWeatherData: function( id ) {
-                axios.get( this.proxy + 'http://api.openweathermap.org/data/2.5/weather?units=metric&id='+ this.locationIDs[ id ] +'&appid=65c63737a69855a4698b42e71f3d1b57' )
+                axios.get( this.proxy + 'http://api.openweathermap.org/data/2.5/weather?units=metric&id='+ this.locationIDs[ id ] +'&appid=?' )
                     .then( response => {
 
                         console.log( JSON.parse( JSON.stringify( response.data['weather'][ 0 ].icon ) ) );
