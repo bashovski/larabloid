@@ -1,6 +1,5 @@
 * text=auto
 *.css linguist-vendored
 *.scss linguist-vendored
-/vendor/*.js linguist-vendored
 *.blade.php linguist-vendored
 CHANGELOG.md export-ignore
