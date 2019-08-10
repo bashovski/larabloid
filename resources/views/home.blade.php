@@ -85,6 +85,17 @@
                 </div>
                 <div class="pt-2"></div>
                 <weather-panel></weather-panel>
+                <div class="pt-2"></div>
+                <!-- Currency converter  (NOT USED) -->
+                <!--
+                <div class="border p-1 d-flex align-items-center justify-content-center _currency_notice">
+                    <object data="/svg/currency.svg" type="image/svg+xml" width="25" height="25" class="">
+                        <img src="/svg/currency.svg"/>
+                    </object>
+                    <span class="h3 pl-2 pt-2" style="color: #000; font-weight: bold;">Currency converter</span>
+                </div>
+                <currency-converter class="pt-3"></currency-converter>
+                -->
             </div>
         </div>
     </div>

@@ -203,3 +203,13 @@ a.nostyle:visited {
     background: linear-gradient(45deg, rgba(120,235,255,1) 0%, rgba(109,64,128,1) 100%); /* w3c */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6D4080', endColorstr='#78EBFF',GradientType=1 ); /* ie6-9 */
 }
+
+._currency_notice {
+    background: -moz-linear-gradient(45deg, rgba(179,255,92,1) 0%, rgba(237,228,161,1) 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(179,255,92,1)), color-stop(100%, rgba(237,228,161,1))); /* safari4+,chrome */
+    background: -webkit-linear-gradient(45deg, rgba(179,255,92,1) 0%, rgba(237,228,161,1) 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(45deg, rgba(179,255,92,1) 0%, rgba(237,228,161,1) 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(45deg, rgba(179,255,92,1) 0%, rgba(237,228,161,1) 100%); /* ie10+ */
+    background: linear-gradient(45deg, rgba(179,255,92,1) 0%, rgba(237,228,161,1) 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EDE4A1', endColorstr='#B3FF5C',GradientType=1 ); /* ie6-9 */
+}

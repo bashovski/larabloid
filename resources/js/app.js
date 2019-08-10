@@ -14,6 +14,7 @@ import categoryAssigner from './components/CategoryAssigner.vue';
 import lengthChecker from './components/CommentLengthChecker.vue';
 import LikeButton from './components/LikeButton.vue';
 import WeatherPanel from "./components/WeatherPanel";
+import CurrencyConverter from "./components/CurrencyConverter";
 
 
 /**
@@ -42,6 +43,7 @@ const app = new Vue({
         'category-assigner': categoryAssigner,
         'length-checker': lengthChecker,
         'like-btn': LikeButton,
-        'weather-panel': WeatherPanel
+        'weather-panel': WeatherPanel,
+        'currency-converter': CurrencyConverter
     }
 });

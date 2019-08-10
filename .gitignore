@@ -10,3 +10,4 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .html
+resources/js/components/WeatherPanel.vue

@@ -92,10 +92,10 @@
         },
         methods: {
             loadWeatherData: function( id ) {
-                axios.get( this.proxy + 'http://api.openweathermap.org/data/2.5/weather?units=metric&id='+ this.locationIDs[ id ] +'&appid=?' )
+                axios.get( this.proxy + 'http://api.openweathermap.org/data/2.5/weather?units=metric&id='+ this.locationIDs[ id ] +'&appid=ee6680794aa73498f39f38a9aba5ff03' )
                     .then( response => {
 
-                        console.log( JSON.parse( JSON.stringify( response.data['weather'][ 0 ].icon ) ) );
+                        //console.log( JSON.parse( JSON.stringify( response.data['weather'][ 0 ].icon ) ) );
                         this.temperature[ id ] = parseInt( JSON.parse( JSON.stringify( response.data[ 'main' ] ) ).temp );
                         this.icon[ id ] =
                             'http://openweathermap.org/img/wn/' +

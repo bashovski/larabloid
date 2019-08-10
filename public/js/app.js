@@ -1908,6 +1908,128 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CurrencyConverter.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CurrencyConverter.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "CurrencyConverter",
+  mounted: function mounted() {
+    this.getCurrencies();
+  },
+  data: function data() {
+    return {
+      selected: ['EUR', 'USD'],
+      selectedKeys: [],
+      obj: [],
+      currencies: [],
+      values: [],
+      userInput: [0, 0],
+      currencyKeys: [],
+      proxy: 'https://cors-anywhere.herokuapp.com/'
+    };
+  },
+  methods: {
+    getCurrencies: function getCurrencies() {
+      var _this = this;
+
+      axios.get(this.proxy + 'https://api.exchangeratesapi.io/latest').then(function (response) {
+        //console.log( JSON.parse( JSON.stringify( response.data ) ) );
+        _this.obj = JSON.parse(JSON.stringify(response.data)); //console.log( this.obj.base );
+
+        for (var i in _this.obj.rates) {
+          _this.currencies.push(i); //console.log( i + Object.values( i ) );
+
+        }
+
+        _this.currencies.push(_this.obj.base);
+
+        _this.selected[0] = _this.obj.base;
+
+        _this.$forceUpdate(); //console.log( this.currencies );
+
+
+        _this.assignCurrencies();
+
+        _this.currencyKeys = Object.keys(_this.obj.rates);
+        console.log(Object.keys(_this.obj.rates)); //console.log( 'values '+ this.values[ 0 ] );
+      })["catch"](function (errors) {
+        console.log(errors);
+      });
+    },
+    updateCurrency: function updateCurrency(currency, dropdownID) {
+      //console.log( 'OLD: '+ this.selected[ dropdownID ]+ ' NEW: '+ currency );
+      this.selected[dropdownID] = currency;
+      this.selectedKeys[dropdownID] = this.getCurrencyKeyByID(currency, dropdownID);
+      this.$forceUpdate();
+    },
+    assignCurrencies: function assignCurrencies() {
+      for (var i in this.currencies) {
+        this.values.push(this.obj.rates[this.currencies[i]]);
+      }
+
+      this.values.push(1); // Pushing base value (EUR) to an array.
+
+      this.selectedKeys[0] = 1;
+      this.selectedKeys[1] = 26;
+      console.log('USD: ' + this.obj.rates['USD']); //console.log( 'Values object: '+ this.values[ 0 ] + ' | currency: '+ this.currencies[ 0 ] );
+    },
+    convertCurrency: function convertCurrency(id) {
+      var otherid = !id ? 1 : 0,
+          val = this.userInput[id] * this.selectedKeys[otherid] * this.values[this.selectedKeys[id]];
+      return !isNaN(val) ? val : '';
+    },
+    getCurrencyKeyByID: function getCurrencyKeyByID(id, keyID) {
+      for (var i in this.currencyKeys) {
+        if (id == this.currencyKeys[i]) {
+          this.selectedKeys[keyID] = i;
+          break;
+        }
+      }
+
+      return this.selectedKeys[keyID];
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LikeButton.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LikeButton.vue?vue&type=script&lang=js& ***!
@@ -2091,8 +2213,8 @@ __webpack_require__.r(__webpack_exports__);
     loadWeatherData: function loadWeatherData(id) {
       var _this = this;
 
-      axios.get(this.proxy + 'http://api.openweathermap.org/data/2.5/weather?units=metric&id=' + this.locationIDs[id] + '&appid=65c63737a69855a4698b42e71f3d1b57').then(function (response) {
-        console.log(JSON.parse(JSON.stringify(response.data['weather'][0].icon)));
+      axios.get(this.proxy + 'http://api.openweathermap.org/data/2.5/weather?units=metric&id=' + this.locationIDs[id] + '&appid=ee6680794aa73498f39f38a9aba5ff03').then(function (response) {
+        //console.log( JSON.parse( JSON.stringify( response.data['weather'][ 0 ].icon ) ) );
         _this.temperature[id] = parseInt(JSON.parse(JSON.stringify(response.data['main'])).temp);
         _this.icon[id] = 'http://openweathermap.org/img/wn/' + String(JSON.parse(JSON.stringify(response.data['weather'][0].icon))) + '@2x.png';
         return _this.update(id);
@@ -37481,6 +37603,141 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CurrencyConverter.vue?vue&type=template&id=7aabab98&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CurrencyConverter.vue?vue&type=template&id=7aabab98&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", [
+      _c("div", { staticClass: "d-flex justify-content-center" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.userInput[1],
+              expression: "userInput[ 1 ]"
+            }
+          ],
+          staticClass: "form-control w-50",
+          attrs: { type: "text", placeholder: "Insert amount" },
+          domProps: { value: _vm.userInput[1] },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.userInput, 1, $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown pl-2" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-secondary dropdown-toggle",
+              attrs: { type: "button", id: "upper", "data-toggle": "dropdown" }
+            },
+            [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.selected[0]) +
+                  "\n                "
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "dropdown-menu" },
+            _vm._l(_vm.currencies, function(currency) {
+              return _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  on: {
+                    click: function($event) {
+                      return _vm.updateCurrency(currency, 0)
+                    }
+                  }
+                },
+                [_vm._v(_vm._s(currency))]
+              )
+            }),
+            0
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex pt-2 justify-content-center" }, [
+        _c("input", {
+          staticClass: "form-control w-50",
+          attrs: { type: "text" },
+          domProps: {
+            value: _vm.convertCurrency(1),
+            textContent: _vm._s(_vm.userInput[1])
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "dropdown pl-2" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-secondary dropdown-toggle",
+              attrs: { type: "button", id: "lower", "data-toggle": "dropdown" }
+            },
+            [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.selected[1]) +
+                  "\n                "
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "dropdown-menu" },
+            _vm._l(_vm.currencies, function(currency) {
+              return _c(
+                "a",
+                {
+                  staticClass: "dropdown-item",
+                  on: {
+                    click: function($event) {
+                      return _vm.updateCurrency(currency, 1)
+                    }
+                  }
+                },
+                [_vm._v(_vm._s(currency))]
+              )
+            }),
+            0
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LikeButton.vue?vue&type=template&id=2a9c25d4&scoped=true&":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LikeButton.vue?vue&type=template&id=2a9c25d4&scoped=true& ***!
@@ -37607,27 +37864,33 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "d-flex justify-content-center" }, [
     _c("div", { staticClass: "row m-1" }, [
-      _c("div", { staticClass: "border col-md-6 justify-content-center" }, [
-        _c("div", { staticClass: "nowrap justify-content-center" }, [
-          _c("img", { attrs: { src: _vm.icon[0], alt: "" } }),
+      _c(
+        "div",
+        { staticClass: "border col-md-6 justify-content-center shadow-lg" },
+        [
+          _c("div", { staticClass: "nowrap justify-content-center" }, [
+            _c("img", { attrs: { src: _vm.icon[0], alt: "" } }),
+            _vm._v(" "),
+            _c("span", { staticStyle: { "font-weight": "bold" } }, [
+              _vm._v(_vm._s(_vm.temperature[0]) + "°")
+            ])
+          ]),
           _vm._v(" "),
-          _c("span", { staticStyle: { "font-weight": "bold" } }, [
-            _vm._v(_vm._s(_vm.temperature[0]) + "°")
+          _c("div", { staticClass: "justify-content-center text-md-center" }, [
+            _vm._v(
+              "\n                " +
+                _vm._s(_vm.locations[0].name) +
+                "\n            "
+            )
           ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "justify-content-center text-md-center" }, [
-          _vm._v(
-            "\n                " +
-              _vm._s(_vm.locations[0].name) +
-              "\n            "
-          )
-        ])
-      ]),
+        ]
+      ),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "border col-md-6 justify-content-center pb-3" },
+        {
+          staticClass: "border col-md-6 justify-content-center pb-3 shadow-lg"
+        },
         [
           _c("div", { staticClass: "nowrap justify-content-center" }, [
             _c("img", { attrs: { src: _vm.icon[1], alt: "" } }),
@@ -37649,7 +37912,9 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "border col-md-6 justify-content-center pb-3" },
+        {
+          staticClass: "border col-md-6 justify-content-center pb-3 shadow-lg"
+        },
         [
           _c("div", { staticClass: "nowrap justify-content-center" }, [
             _c("img", { attrs: { src: _vm.icon[2], alt: "" } }),
@@ -37671,7 +37936,9 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "border col-md-6 justify-content-center pb-3" },
+        {
+          staticClass: "border col-md-6 justify-content-center pb-3 shadow-lg"
+        },
         [
           _c("div", { staticClass: "nowrap justify-content-center" }, [
             _c("img", { attrs: { src: _vm.icon[3], alt: "" } }),
@@ -49850,6 +50117,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CommentLengthChecker_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/CommentLengthChecker.vue */ "./resources/js/components/CommentLengthChecker.vue");
 /* harmony import */ var _components_LikeButton_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/LikeButton.vue */ "./resources/js/components/LikeButton.vue");
 /* harmony import */ var _components_WeatherPanel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/WeatherPanel */ "./resources/js/components/WeatherPanel.vue");
+/* harmony import */ var _components_CurrencyConverter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/CurrencyConverter */ "./resources/js/components/CurrencyConverter.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -49858,6 +50126,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+
 
 
 
@@ -49887,7 +50156,8 @@ var app = new Vue({
     'category-assigner': _components_CategoryAssigner_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     'length-checker': _components_CommentLengthChecker_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     'like-btn': _components_LikeButton_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    'weather-panel': _components_WeatherPanel__WEBPACK_IMPORTED_MODULE_4__["default"]
+    'weather-panel': _components_WeatherPanel__WEBPACK_IMPORTED_MODULE_4__["default"],
+    'currency-converter': _components_CurrencyConverter__WEBPACK_IMPORTED_MODULE_5__["default"]
   }
 });
 
@@ -50084,6 +50354,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CommentLengthChecker_vue_vue_type_template_id_3c5dca8a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CommentLengthChecker_vue_vue_type_template_id_3c5dca8a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/CurrencyConverter.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/CurrencyConverter.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CurrencyConverter_vue_vue_type_template_id_7aabab98_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CurrencyConverter.vue?vue&type=template&id=7aabab98&scoped=true& */ "./resources/js/components/CurrencyConverter.vue?vue&type=template&id=7aabab98&scoped=true&");
+/* harmony import */ var _CurrencyConverter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CurrencyConverter.vue?vue&type=script&lang=js& */ "./resources/js/components/CurrencyConverter.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CurrencyConverter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CurrencyConverter_vue_vue_type_template_id_7aabab98_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CurrencyConverter_vue_vue_type_template_id_7aabab98_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "7aabab98",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CurrencyConverter.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/CurrencyConverter.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/CurrencyConverter.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CurrencyConverter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CurrencyConverter.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CurrencyConverter.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CurrencyConverter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/CurrencyConverter.vue?vue&type=template&id=7aabab98&scoped=true&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/CurrencyConverter.vue?vue&type=template&id=7aabab98&scoped=true& ***!
+  \**************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CurrencyConverter_vue_vue_type_template_id_7aabab98_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CurrencyConverter.vue?vue&type=template&id=7aabab98&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CurrencyConverter.vue?vue&type=template&id=7aabab98&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CurrencyConverter_vue_vue_type_template_id_7aabab98_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CurrencyConverter_vue_vue_type_template_id_7aabab98_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

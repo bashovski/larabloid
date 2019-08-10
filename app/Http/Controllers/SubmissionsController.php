@@ -11,9 +11,13 @@ use App\User;
 class SubmissionsController extends Controller
 {
 
-    public function index() {
+    public function index( $category = '' ) {
 
-        $submissions = Submission::orderBy('created_at')->paginate( 10 );
+        if( strlen( $category ) > 0 )
+            $submissions = Submission::where( 'category', '=', $category )->orderBy( 'created_at' )->paginate( 10 );
+        else
+            $submissions = Submission::orderBy('created_at')->paginate( 10 );
+
         $users = User::withCount('submissions')->orderBy('submissions_count', 'desc')->paginate(5);
         return view( 'home', compact( 'submissions', 'users' ) );
     }
