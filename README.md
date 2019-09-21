@@ -10,5 +10,3 @@ Laravel-based news web-app (work in progress)<br><br>
 * `php artisan key:generate`
 * `php artisan migrate --seed`
 * `php artisan serve` -> 127.0.0.1:8000 by default
-
-* in order to build frontend use `npm run dev(elopment)`
